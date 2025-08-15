@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Map with Filters</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div id="filterControl" class="filter-control">
+      <div class="filter-header">
+        <button id="toggleFilters" class="toggle-button">
+          <span id="toggleText">Hide Filters</span>
+          <span class="arrow">▼</span>
+        </button>
+      </div>
+      <div id="filterContent" class="filter-content">
+        <div class="filter-section">
+          <label class="filter-label">Building Type:</label>
+          <select id="buildingTypeFilter" class="filter-select">
+            <option value="all">All</option>
+            <option value="Office">Office</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Multi-family">Multi-family</option>
+            <option value="Retail">Retail</option>
+            <option value="Educational">Educational</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const GOOGLE_MAPS_API_KEY = "API_KEY";
+
+      function loadGoogleMapsAPI() {
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      }
+
+      loadGoogleMapsAPI();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
